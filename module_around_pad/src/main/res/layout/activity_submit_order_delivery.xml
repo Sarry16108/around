@@ -74,7 +74,8 @@
                     android:layout_height="wrap_content"
                     android:src="@mipmap/icon_arrow_right"
                     android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="30dp"/>
             </RelativeLayout>
 
             <LinearLayout
@@ -105,7 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/icon_arrow_right"
-                    android:layout_marginRight="-30dp"/>
+                    android:layout_marginLeft="30dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -137,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/icon_arrow_right"
-                    android:layout_marginRight="-30dp"/>
+                    android:layout_marginLeft="30dp"/>
             </LinearLayout>
 
             <TextView
@@ -184,7 +185,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/icon_arrow_right"
-                    android:layout_marginRight="-30dp"/>
+                    android:layout_marginLeft="30dp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -216,7 +217,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/icon_arrow_right"
-                    android:layout_marginRight="-30dp"/>
+                    android:layout_marginLeft="30dp"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

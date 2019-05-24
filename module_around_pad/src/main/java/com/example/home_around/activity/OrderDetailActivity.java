@@ -2,6 +2,9 @@ package com.example.home_around.activity;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -94,6 +97,13 @@ public class OrderDetailActivity extends BaseNormalActivity implements View.OnCl
     }
 
     private void initData() {
+        mMechantName.setText("什么店铺啊");
+        String prePrice = "100.00";
+        SpannableStringBuilder builder2 = new SpannableStringBuilder().
+                append("¥").append(prePrice, new RelativeSizeSpan(1.5f), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        mBottomPrice.setText(builder2);
+        mPayImmediate.setSelected(true);
+
         List<DeliverySelectedGoodsData> list = new ArrayList<>(3);
         list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 2));
         list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 1));

@@ -101,7 +101,7 @@ public class SubmitOrderOfDeliveryActivity extends BaseNormalActivity implements
         list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 2));
 
         mAdapter.setItems(list);
-        mBottomPrice.setText("" + mAdapter.getTotalPrice());
+        mBottomPrice.setText("¥" + mAdapter.getTotalPrice());
     }
 
     @Override
