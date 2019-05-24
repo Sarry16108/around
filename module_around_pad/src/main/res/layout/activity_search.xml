@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp">
+
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/icon_back_arrow" />
+
+        <com.example.lib_generic.widgets.SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="600dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:focusable="true"
+            app:viewTheme="themeWhite"
+            app:editable="true"/>
+
+        <TextView
+            android:id="@+id/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="清除"
+            android:textSize="25sp"
+            android:textColor="@color/sfy_yellow"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_bar"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:background="@android:color/white"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_bar"
+        android:visibility="gone"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:background="@android:color/white"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_bar"
+        android:visibility="gone"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:background="@android:color/white"/>
+
+</RelativeLayout>
