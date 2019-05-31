@@ -2,6 +2,7 @@ package com.example.home_around.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,6 +96,12 @@ public class GroupDataAdapter extends RecyclerView.Adapter<GroupDataAdapter.Grou
 
             pos++;
         }
+
+//        LinearLayoutManager layoutManager = ((LinearLayoutManager)mRecyclerView.getLayoutManager());
+//        int firstItem = layoutManager.findFirstVisibleItemPosition();
+//        int top ;
+//            top = layoutManager.getChildAt(pos).getTop() - layoutManager.getChildAt(firstItem).getTop();
+//        mRecyclerView.scrollBy(0, top);
 
         mRecyclerView.smoothScrollToPosition(pos);
     }

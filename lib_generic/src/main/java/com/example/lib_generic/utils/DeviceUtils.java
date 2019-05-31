@@ -8,9 +8,11 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 
-
+import java.net.NetworkInterface;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
 public class DeviceUtils {
@@ -141,6 +143,34 @@ public class DeviceUtils {
         return null;
     }
 
+    public static String getMacFromHardware() {
+        try {
+            List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
+            for (NetworkInterface nif : all) {
+                if (!nif.getName().equalsIgnoreCase("wlan0")) continue;
+
+                byte[] macBytes = nif.getHardwareAddress();
+                if (macBytes == null) {
+                    return null;
+                }
+
+                StringBuilder res1 = new StringBuilder();
+                for (byte b : macBytes) {
+                    res1.append(String.format("%02X:", b));
+                }
+
+                if (res1.length() > 0) {
+                    res1.deleteCharAt(res1.length() - 1);
+                }
+                return res1.toString();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
     public static String getDeviceId(Context context){
         try{
             TelephonyManager TelephonyMgr = (TelephonyManager)context.getSystemService(context.TELEPHONY_SERVICE);
@@ -208,5 +238,52 @@ public class DeviceUtils {
 
     public static int getScreenHeight() {
         return mScreenHeight;
+    }
+
+
+    public static String getMac(){
+        String macDefault = "00:08:69:03:01:03";//TEST_CODE
+        String macStr =   DeviceUtils.getMacFromHardware();
+        for(String mac : MACS){
+            if(macStr.equals(mac)){
+                return macStr;
+            }
+        }
+        return macDefault;
+    }
+
+    public static boolean hasMacRegister(){
+        String macStr =   DeviceUtils.getMacFromHardware();
+        for(String mac : MACS){
+            if(macStr.equals(mac)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static String getProductCode(){
+        String productCode =  getDeviceSnByMac(getMac());
+        return productCode;
+    }
+    static String[] MACS ={"00:08:69:03:01:01","00:08:69:03:01:02","00:08:69:03:01:03","00:08:69:03:01:05","00:08:69:03:01:06"};
+    static String[] DEVICE_SN ={"0000134278275","0000152228667","0002069968219","0002070095259","0002070099914"};
+    public static String getDeviceSnByMac(String macStr){
+        if(macStr!=null){
+            for(int i=0;i<MACS.length;i++){
+                String mac=MACS[i];
+                if(mac.equals(macStr)){
+                    return DEVICE_SN[i];
+                }
+            }
+        }
+        return null;
+    }
+
+
+
+    public static int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
     }
 }

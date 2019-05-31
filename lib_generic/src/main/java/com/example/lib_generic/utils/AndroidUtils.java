@@ -1,5 +1,7 @@
 package com.example.lib_generic.utils;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
 import android.os.PowerManager;
 import android.view.View;
@@ -43,5 +45,15 @@ public class AndroidUtils {
                     | View.SYSTEM_UI_FLAG_FULLSCREEN;
             decorView.setSystemUiVisibility(uiOptions);
         }
+    }
+
+    /**
+     * 设置透明度
+     * @param alpha 0~1
+     */
+    public void setWindowAlpha(Activity activity, float alpha) {
+        WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
+        lp.alpha = alpha;
+        activity.getWindow().setAttributes(lp);
     }
 }

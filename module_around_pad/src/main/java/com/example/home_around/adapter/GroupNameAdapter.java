@@ -49,19 +49,16 @@ public class GroupNameAdapter extends RecyclerView.Adapter<GroupNameAdapter.Grou
         GroupNameData data = mItems.get(i);
 
         viewHolder.bindViewHolder(data);
-        if (mPreClickView == null && i == mDefaultSelectIndex) {
-            mPreClickView = viewHolder.getParent();
-            mPreClickView.setSelected(true);
-            mPreClickView.setBackgroundResource(R.color.sfy_yellow);
-        }
+        viewHolder.getParent().setSelected(i == mDefaultSelectIndex);
 
         if (mItemClickListener != null) {
             viewHolder.setOnItemClickListener(new OnSimpleItemClickListener() {
                 @Override
                 public void OnClick(View view, int pos) {
+                    mDefaultSelectIndex = pos;
                     mItemClickListener.OnClick(mPreClickView, view, pos);
                     //保留视图
-                    mPreClickView = viewHolder.getParent();
+                    notifyDataSetChanged();
                 }
             }, i);
         }
@@ -88,6 +85,10 @@ public class GroupNameAdapter extends RecyclerView.Adapter<GroupNameAdapter.Grou
         this.mDefaultSelectIndex = index;
     }
 
+    public void setItemSelectByPos(int index) {
+        mDefaultSelectIndex = index;
+        notifyDataSetChanged();
+    }
     /**
      * 获取组类别id
      * @param pos

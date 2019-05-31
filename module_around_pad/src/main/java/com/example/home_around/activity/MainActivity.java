@@ -97,6 +97,7 @@ public class MainActivity extends SfyBaseActivity implements View.OnClickListene
         switch (id) {
             case R.id.back:
                 this.finish();
+                android.os.Process.killProcess(android.os.Process.myPid());
                 break;
             case R.id.search_bar:
                 ActManager.toSearch(this);

@@ -41,6 +41,14 @@ public class GoodsSelectFragment extends SfyBaseFragment {
     private GroupNameAdapter    mGroupNameAdapter;
     private GroupDataAdapter    mGroupDataAdapter;
 
+    //上次点击位置
+    private int mOldPos = 0;
+    //是否联动
+    private boolean mScrollStick = false;
+
+    private LinearLayoutManager datasLayoutManager;
+    private LinearLayoutManager nameLayoutManager;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,28 +65,24 @@ public class GoodsSelectFragment extends SfyBaseFragment {
         mDatas = view.findViewById(R.id.datas);
 
         mGroupNameAdapter = new GroupNameAdapter(getContext());
-        mGroupName.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        nameLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        mGroupName.setLayoutManager(nameLayoutManager);
         mGroupName.setAdapter(mGroupNameAdapter);
         mGroupNameAdapter.setOnItemClickListener(new OnSimpleItemClickListener() {
             @Override
             public void OnClick(View preView, View view, int pos) {
                 LogUtils.d(preView + "   view：" + view);
-                if (preView != null) {
-                    preView.setSelected(false);
-                    preView.setBackgroundResource(0);
-                }
-
-                view.setSelected(true);
-                view.setBackgroundResource(R.color.sfy_yellow);
 
                 //设置数据滚动到指定类型
+                mOldPos = pos;
                 mGroupDataAdapter.scrollToType(mGroupNameAdapter.getItemType(pos));
             }
         });
         mGroupNameAdapter.setDefaultSelectItem(0);
 
         mGroupDataAdapter = new GroupDataAdapter(getContext(), mDatas);
-        mDatas.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        datasLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        mDatas.setLayoutManager(datasLayoutManager);
         mDatas.setAdapter(mGroupDataAdapter);
         mGroupDataAdapter.setOnItemClickListener(new OnSimpleItemClickListener() {
             @Override
@@ -92,6 +96,40 @@ public class GoodsSelectFragment extends SfyBaseFragment {
                 LogUtils.d("选择的位置 " + pos);
                 GroupData.GroupItemData item = mGroupDataAdapter.getItem(pos);
                 goodsTypesSelect(item.getImgUrl(), item.getTitle(), item.getPrice());
+            }
+        });
+
+
+        mDatas.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                LogUtils.d("newState：" + newState);
+                if (RecyclerView.SCROLL_STATE_DRAGGING == newState) {
+                    mScrollStick = true;
+                }
+
+                if (RecyclerView.SCROLL_STATE_IDLE == newState && mScrollStick) {
+                    mScrollStick = false;
+                }
+            }
+        });
+        //滚动联动设置
+        mDatas.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (!mScrollStick) {
+                    return;
+                }
+
+                int pos = datasLayoutManager.findFirstVisibleItemPosition();
+                LogUtils.d("pos：" + pos + "  old pos：" + mOldPos);
+                if (mOldPos != pos) {
+                    GroupData.GroupItemData item = mGroupDataAdapter.getItem(pos);
+                    nameLayoutManager.scrollToPosition(item.getType());
+                    mGroupNameAdapter.setItemSelectByPos(item.getType());
+                    mOldPos = pos;
+                }
             }
         });
     }
