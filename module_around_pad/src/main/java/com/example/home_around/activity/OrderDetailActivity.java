@@ -1,11 +1,15 @@
 package com.example.home_around.activity;
 
+import android.app.Dialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,6 +18,7 @@ import com.example.home_around.adapter.DeliverySelectedGoodsAdapter;
 import com.example.home_around.base.BaseNormalActivity;
 import com.example.home_around.entity.DeliverySelectedGoodsData;
 import com.example.lib_generic.base.SfyBaseActivity;
+import com.example.lib_generic.utils.GlideUtils;
 import com.example.module_around.R;
 
 import java.util.ArrayList;
@@ -105,9 +110,9 @@ public class OrderDetailActivity extends BaseNormalActivity implements View.OnCl
         mPayImmediate.setSelected(true);
 
         List<DeliverySelectedGoodsData> list = new ArrayList<>(3);
-        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 2));
-        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 1));
-        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 2));
+        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 2));
+        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 1));
+        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 2));
 
         mAdapter.setItems(list);
     }
@@ -122,6 +127,7 @@ public class OrderDetailActivity extends BaseNormalActivity implements View.OnCl
             case R.id.copy:
                 break;
             case R.id.cancel_order:
+                goodsTypesSelect();
                 break;
             case R.id.rebuy:
                 break;
@@ -131,4 +137,51 @@ public class OrderDetailActivity extends BaseNormalActivity implements View.OnCl
                 break;
         }
     }
+
+
+    private TextView check1, check2, check3;
+    private Dialog mDialog;
+    private void goodsTypesSelect() {
+        mDialog = new Dialog(this, R.style.AppNoActionBarWidthFull);
+        mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        mDialog.setContentView(R.layout.dialog_order_cancel);
+        Window window = mDialog.getWindow();
+        WindowManager.LayoutParams layoutParams = window.getAttributes();
+        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+        layoutParams.gravity =Gravity.BOTTOM;
+        window.setAttributes(layoutParams);
+
+
+        mDialog.findViewById(R.id.close).setOnClickListener(onClickListener);
+        mDialog.findViewById(R.id.settlement).setOnClickListener(onClickListener);
+        mDialog.findViewById(R.id.item1).setOnClickListener(onClickListener);
+        mDialog.findViewById(R.id.item2).setOnClickListener(onClickListener);
+        mDialog.findViewById(R.id.item3).setOnClickListener(onClickListener);
+        check1 = mDialog.findViewById(R.id.check1);
+        check2 = mDialog.findViewById(R.id.check2);
+        check3 = mDialog.findViewById(R.id.check3);
+
+        mDialog.show();
+    }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.item1:
+                case R.id.item2:
+                case R.id.item3:
+                    check1.setSelected(R.id.item1 == v.getId());
+                    check2.setSelected(R.id.item2 == v.getId());
+                    check3.setSelected(R.id.item3 == v.getId());
+                    break;
+                case R.id.close:
+                    mDialog.dismiss();
+                    break;
+                case R.id.settlement:
+                    mDialog.dismiss();
+                    break;
+            }
+        }
+    };
 }

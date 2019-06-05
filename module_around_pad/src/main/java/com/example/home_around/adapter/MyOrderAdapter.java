@@ -3,6 +3,9 @@ package com.example.home_around.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +15,9 @@ import android.widget.TextView;
 import com.example.home_around.base.BaseHolder;
 import com.example.home_around.entity.DeliverySelectedGoodsData;
 import com.example.home_around.entity.MyOrderData;
+import com.example.home_around.utils.ActManager;
 import com.example.home_around.widget.OnItemClickListener;
+import com.example.lib_generic.base.SfyBaseActivity;
 import com.example.lib_generic.utils.GlideUtils;
 import com.example.lib_generic.utils.LogUtils;
 import com.example.module_around.R;
@@ -46,6 +51,18 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.SearchTi
         MyOrderData data = mItems.get(i);
 
         viewHolder.bindViewHolder(data);
+        viewHolder.getParent().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (0 == i % 3) {
+                    ActManager.toGoodsDetailOfActual((SfyBaseActivity) mContext, 0);
+                } else if (1 == i % 3) {
+                    ActManager.toGoodsDetailOfService((SfyBaseActivity) mContext, 0);
+                } else {
+                    ActManager.toGoodsDetailOfAppoint((SfyBaseActivity) mContext, 0);
+                }
+            }
+        });
         if (View.VISIBLE == viewHolder.cancelOrder.getVisibility()) {
             viewHolder.cancelOrder.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -121,8 +138,15 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.SearchTi
             GlideUtils.showImage(image, data.getImgUrl());
             title.setText(data.getTitle());
             extInfo.setText(data.getExtInfo());
-            price.setText("¥" + data.getPrice());
-            totalPrice.setText("¥" + data.getPrice());
+            RelativeSizeSpan spanBig = new RelativeSizeSpan(1.8f);
+
+            SpannableStringBuilder builder = new SpannableStringBuilder().
+                    append("¥").append(data.getPrice(), spanBig, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            price.setText(builder);
+
+            SpannableStringBuilder builder2 = new SpannableStringBuilder().
+                    append("¥").append(data.getTotalPrice(), spanBig, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            totalPrice.setText(builder2);
             count.setText("X" + data.getCount());
 
             switch (data.getType()) {
@@ -155,6 +179,7 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.SearchTi
                     state.setText("已完成");
                     state.setSelected(false);
                     cancelOrder.setVisibility(View.VISIBLE);
+                    cancelOrder.setSelected(true);
                     cancelOrder.setText("评价");
                     checkDelivery.setVisibility(View.VISIBLE);
                     checkDelivery.setText("再次购买");

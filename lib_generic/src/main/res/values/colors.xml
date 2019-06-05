@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="sfy_black">#333333</color>
-    <color name="translucentColor">#4C333333</color>
-    <color name="sfy_gray">#999999</color>
-    <color name="sfy_yellow">#FFBA43</color>
-    <color name="sfy_light_gray">#F0F0F0</color>
-    <color name="sfy_white_gray">#D8D8D8</color>
-</resources>

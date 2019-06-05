@@ -116,15 +116,15 @@ public class OrderAllFragment extends SfyBaseFragment {
     private void initData() {
 
         List<MyOrderData> datas = new ArrayList<>();
-        datas.add(new MyOrderData("耐克专卖店","http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "18", "18",2, 0));
-        datas.add(new MyOrderData("星巴克旗舰店（虹梅路店）","http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "33","18", 1, 1));
-        datas.add(new MyOrderData("玩呗城堡（爱琴海店）", "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "25", "18",3, 2));
-        datas.add(new MyOrderData("科瓦齿科（金茂大厦店）", "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "21", "18",4, 3));
-        datas.add(new MyOrderData("耐克专卖店","http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "55","18", 2, 4));
-        datas.add(new MyOrderData("星巴克旗舰店（虹梅路店）","http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "234", "18",1, 5));
-        datas.add(new MyOrderData("玩呗城堡（爱琴海店）","http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "12", "18",2, 6));
-        datas.add(new MyOrderData("科瓦齿科（金茂大厦店）","http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "221", "18",3, 7));
-        datas.add(new MyOrderData("星巴克旗舰店（虹梅路店）", "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "342","18", 1, 0));
+        datas.add(new MyOrderData("耐克专卖店","http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "18", "18",2, 0));
+        datas.add(new MyOrderData("星巴克旗舰店（虹梅路店）","http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "33","18", 1, 1));
+        datas.add(new MyOrderData("玩呗城堡（爱琴海店）", "http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "25", "18",3, 2));
+        datas.add(new MyOrderData("科瓦齿科（金茂大厦店）", "http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "21", "18",4, 3));
+        datas.add(new MyOrderData("耐克专卖店","http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "55","18", 2, 4));
+        datas.add(new MyOrderData("星巴克旗舰店（虹梅路店）","http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "234", "18",1, 5));
+        datas.add(new MyOrderData("玩呗城堡（爱琴海店）","http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "12", "18",2, 6));
+        datas.add(new MyOrderData("科瓦齿科（金茂大厦店）","http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "221", "18",3, 7));
+        datas.add(new MyOrderData("星巴克旗舰店（虹梅路店）", "http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "342","18", 1, 0));
         mMyOrderAdapter.setItems(datas);
 
     }

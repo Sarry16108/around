@@ -12,12 +12,12 @@
         android:layout_height="wrap_content"
         tools:text="搜素历史"
         android:textColor="@color/sfy_gray"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:layout_weight="1"/>
 
     <ImageView
         android:id="@+id/clear"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
         android:src="@mipmap/icon_clear"/>
 </LinearLayout>

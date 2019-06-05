@@ -91,7 +91,7 @@ public class GoodsDetailOfAppointActivity extends BaseNormalActivity implements 
 
     private void initData() {
 
-        GlideUtils.showImage(mBg, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg");
+        GlideUtils.showImage(mBg, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/3/Bitmap.png");
         mTitle.setText("星巴克旗舰店（虹梅路店）");
         mExtInfo.setText("商家介绍：目前，星巴克已经在中国150多个城市开设了超过3,600家门店，拥有近50,000名星巴克伙伴。这一独特优势使我们能够在每一天，通过每一家星巴克门店，践行我们的承诺。商家介绍：目前，星巴克已经在中国150多个城市开设了超过3,600家门店，拥有近50,000名星巴克伙伴。这一独特优势使我们能够在每一天，通过每一家星巴克门店，践行我们的承诺。");
 

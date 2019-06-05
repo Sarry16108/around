@@ -85,6 +85,15 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseHolder> {
             ((HistRecordHolder)viewHolder).bindViewHolder((HistRecordData) data);
         }else if (viewHolder instanceof DividerTagHolder) {
             ((DividerTagHolder)viewHolder).bindViewHolder((SearchDividerTagData) data);
+            ((DividerTagHolder)viewHolder).clear.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mItems.clear();
+                    SharePrefUtils.putObject(ConstValue.PAD_SEARCH_HIS_RECORD, "");
+                    LogUtils.d( "点击清理了");
+                    notifyDataSetChanged();
+                }
+            });
         } else if (viewHolder instanceof FooterHolder) {
             ((FooterHolder)viewHolder).bindViewHolder();
         }
@@ -195,13 +204,6 @@ public class SearchAdapter extends RecyclerView.Adapter<BaseHolder> {
 
         public void bindViewHolder(SearchDividerTagData data) {
             tag.setText(data.getTag());
-            clear.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    SharePrefUtils.putObject(ConstValue.PAD_SEARCH_HIS_RECORD, "");
-                    LogUtils.d( "点击清理了");
-                }
-            });
         }
     }
 

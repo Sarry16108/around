@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingLeft="60dp"
+    android:paddingTop="30dp"
+    android:paddingRight="60dp"
+    android:paddingBottom="40dp">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消订单"
+            android:textSize="30sp"
+            android:textColor="@color/sfy_black"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_close"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="取消订单后，本单享有的优惠可能会一并取消，是否继续？"
+                android:textColor="@color/sfy_black"
+                android:textSize="25sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="请选择取消订单的原因（必选）："
+                android:textColor="@color/sfy_black"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:id="@+id/item1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/check1"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/selector_circle_yelllow_white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="配送信息有误"
+                    android:textColor="@color/sfy_black"
+                    android:textSize="25sp"
+                    android:layout_marginLeft="30dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/item2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/check2"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/selector_circle_yelllow_white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="商品买错了"
+                    android:textColor="@color/sfy_black"
+                    android:textSize="25sp"
+                    android:layout_marginLeft="30dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/item3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/check3"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/selector_circle_yelllow_white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="重复下单/误下单"
+                    android:textColor="@color/sfy_black"
+                    android:textSize="25sp"
+                    android:layout_marginLeft="30dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/settlement"
+                android:layout_width="300dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/shape_round_rect_yellow"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

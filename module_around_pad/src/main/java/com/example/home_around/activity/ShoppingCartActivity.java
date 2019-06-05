@@ -67,6 +67,7 @@ public class ShoppingCartActivity extends BaseTitleActivity implements View.OnCl
         mBack.setOnClickListener(this);
         mCheck.setOnClickListener(this);
         mSelectAll.setOnClickListener(this);
+        mSettlement.setOnClickListener(this);
 
         initData();
     }
@@ -76,16 +77,16 @@ public class ShoppingCartActivity extends BaseTitleActivity implements View.OnCl
         List<ShoppingBaseItemData> items = new ArrayList<>(10);
 
         items.add(new ShoppingCartDividerTagData("耐克专卖店"));
-        items.add(new ShoppingCartData.ShoppingCartItem(1, "走啊走", "M", "黑色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg"));
-        items.add(new ShoppingCartData.ShoppingCartItem(2, "走啊走", "S", "红色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg"));
-        items.add(new ShoppingCartData.ShoppingCartItem(3, "别走啊", "L", "蓝色色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg"));
-        items.add(new ShoppingCartData.ShoppingCartItem(4, "晚一会", "XXL", "黑色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg"));
+        items.add(new ShoppingCartData.ShoppingCartItem(1, "走啊走", "M", "黑色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2019-06-04/gouwuche/pic10 copy.png"));
+        items.add(new ShoppingCartData.ShoppingCartItem(2, "走啊走", "S", "红色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2019-06-04/gouwuche/pic10 copy.png"));
+        items.add(new ShoppingCartData.ShoppingCartItem(3, "别走啊", "L", "蓝色色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2019-06-04/gouwuche/pic10 copy.png"));
+        items.add(new ShoppingCartData.ShoppingCartItem(4, "晚一会", "XXL", "黑色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2019-06-04/gouwuche/pic10 copy.png"));
 
         items.add(new ShoppingCartDividerTagData("精品专卖店"));
-        items.add(new ShoppingCartData.ShoppingCartItem(5, "撒由", "M", "黑色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2018-12-28/2018-12-28-b2bb4bea-4d1a-4cb2-a38a-72976ea48351.jpg"));
-        items.add(new ShoppingCartData.ShoppingCartItem(6, "哪啦", "S", "红色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2018-12-28/2018-12-28-b2bb4bea-4d1a-4cb2-a38a-72976ea48351.jpg"));
-        items.add(new ShoppingCartData.ShoppingCartItem(7, "霓虹金", "L", "蓝色色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2018-12-28/2018-12-28-b2bb4bea-4d1a-4cb2-a38a-72976ea48351.jpg"));
-        items.add(new ShoppingCartData.ShoppingCartItem(8, "瓦塔西瓦", "XXL", "黑色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2018-12-28/2018-12-28-b2bb4bea-4d1a-4cb2-a38a-72976ea48351.jpg"));
+        items.add(new ShoppingCartData.ShoppingCartItem(5, "撒由", "M", "黑色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2019-06-04/gouwuche/pic10 copy.png"));
+        items.add(new ShoppingCartData.ShoppingCartItem(6, "哪啦", "S", "红色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2019-06-04/gouwuche/pic10 copy.png"));
+        items.add(new ShoppingCartData.ShoppingCartItem(7, "霓虹金", "L", "蓝色色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2019-06-04/gouwuche/pic10 copy.png"));
+        items.add(new ShoppingCartData.ShoppingCartItem(8, "瓦塔西瓦", "XXL", "黑色", 37.00f, 2, 100, "http://192.168.1.23/resource-file/2019-06-04/gouwuche/pic10 copy.png"));
 
         mShoppingAdapter.setItems(items);
 

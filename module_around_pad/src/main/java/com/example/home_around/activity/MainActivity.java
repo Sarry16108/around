@@ -59,7 +59,7 @@ public class MainActivity extends SfyBaseActivity implements View.OnClickListene
         mShoppingCart.setOnClickListener(this);
 
 
-        mBanner.setBannerStyle(BannerConfig.NUM_INDICATOR);
+        mBanner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
         mBanner.setImageLoader(new ImageLoader() {
             @Override
             public void displayImage(Context context, Object obj, ImageView imageView) {
@@ -69,7 +69,7 @@ public class MainActivity extends SfyBaseActivity implements View.OnClickListene
         mBanner.isAutoPlay(true);
         mBanner.setBannerAnimation(Transformer.Default);
         mBanner.setDelayTime(3000);
-        mBanner.setIndicatorGravity(BannerConfig.RIGHT);
+        mBanner.setIndicatorGravity(BannerConfig.CENTER);
         mBanner.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
@@ -85,9 +85,25 @@ public class MainActivity extends SfyBaseActivity implements View.OnClickListene
         mContent.setLayoutManager(layoutManager);
         mContent.setAdapter(mContentAdapter);
 
-        mContent.addItemDecoration(new HomeItemDecoration(TagFlowLayout.dip2px(this, 30), TagFlowLayout.dip2px(this, 30)));
+//        mContent.addItemDecoration(new HomeItemDecoration(TagFlowLayout.dip2px(this, 30), TagFlowLayout.dip2px(this, 30)));
 
         initData();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mBanner != null) {
+            mBanner.startAutoPlay();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mBanner != null) {
+            mBanner.stopAutoPlay();
+        }
     }
 
     @Override
@@ -112,63 +128,63 @@ public class MainActivity extends SfyBaseActivity implements View.OnClickListene
 
         //todo：
         List<String> homeAds = new ArrayList<>(5);
-        homeAds.add("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-1188a78a-1c76-4f6e-9bc7-1ef89f7c6598.png");
-        homeAds.add("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-335a1990-7612-4315-a7bf-6c84f437dc9f.jpg");
-        homeAds.add("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-b2bb4bea-4d1a-4cb2-a38a-72976ea48351.jpg");
-        homeAds.add("http://192.168.1.23/resource-file/2018-12-26/2018-12-26-6cdb7c47-91e7-4e6e-811c-a3dcb991b94b.png");
-        homeAds.add("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg");
+        homeAds.add("http://192.168.1.23/resource-file/2019-06-04/banner/2.png");
+        homeAds.add("http://192.168.1.23/resource-file/2019-06-04/banner/3.png");
+        homeAds.add("http://192.168.1.23/resource-file/2019-06-04/banner/5.png");
+        homeAds.add("http://192.168.1.23/resource-file/2019-06-04/banner/Bitmap.png");
+        homeAds.add("http://192.168.1.23/resource-file/2019-06-04/banner/tupian3.png");
 
         mBanner.update(homeAds);
 
         List<HomeBaseItemData> kindData = new ArrayList<>(6);
-        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-1188a78a-1c76-4f6e-9bc7-1ef89f7c6598.png", "美食外卖", TOTAL_SPAN/6));
-        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-1188a78a-1c76-4f6e-9bc7-1ef89f7c6598.png", "美食外卖", TOTAL_SPAN/6));
-        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-1188a78a-1c76-4f6e-9bc7-1ef89f7c6598.png", "美食外卖", TOTAL_SPAN/6));
-        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-1188a78a-1c76-4f6e-9bc7-1ef89f7c6598.png", "美食外卖", TOTAL_SPAN/6));
-        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-1188a78a-1c76-4f6e-9bc7-1ef89f7c6598.png", "美食外卖", TOTAL_SPAN/6));
-        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-1188a78a-1c76-4f6e-9bc7-1ef89f7c6598.png", "美食外卖", TOTAL_SPAN/6));
+        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2019-06-04/liugebankuai/chaishishengxian.png", "美食外卖", TOTAL_SPAN/6));
+        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2019-06-04/liugebankuai/jiajuzhuangxiu.png", "美食外卖", TOTAL_SPAN/6));
+        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2019-06-04/liugebankuai/meishiwaimai.png", "美食外卖", TOTAL_SPAN/6));
+        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2019-06-04/liugebankuai/shenghuofuwu.png", "美食外卖", TOTAL_SPAN/6));
+        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2019-06-04/liugebankuai/yiliaojiankang.png", "美食外卖", TOTAL_SPAN/6));
+        kindData.add(new CategoryData("http://192.168.1.23/resource-file/2019-06-04/liugebankuai/youercaiyi.png", "美食外卖", TOTAL_SPAN/6));
         mContentAdapter.addItems(kindData);
 
         mContentAdapter.addItem(new DividerTagData("品牌商家直供", TOTAL_SPAN, 0));
 
         List<HomeBaseItemData> supplyTypeData = new ArrayList<>(6);
-        supplyTypeData.add(new BrandSupplyData("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-335a1990-7612-4315-a7bf-6c84f437dc9f.jpg", TOTAL_SPAN/2));
-        supplyTypeData.add(new BrandSupplyData("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-335a1990-7612-4315-a7bf-6c84f437dc9f.jpg", TOTAL_SPAN/2));
-        supplyTypeData.add(new BrandSupplyData("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-335a1990-7612-4315-a7bf-6c84f437dc9f.jpg", TOTAL_SPAN/2));
-        supplyTypeData.add(new BrandSupplyData("http://192.168.1.23/resource-file/2018-12-28/2018-12-28-335a1990-7612-4315-a7bf-6c84f437dc9f.jpg", TOTAL_SPAN/2));
+        supplyTypeData.add(new BrandSupplyData("http://192.168.1.23/resource-file/2019-06-04/shangjiazhigong/pic1.png", TOTAL_SPAN/2));
+        supplyTypeData.add(new BrandSupplyData("http://192.168.1.23/resource-file/2019-06-04/shangjiazhigong/pic1 copy.png", TOTAL_SPAN/2));
+        supplyTypeData.add(new BrandSupplyData("http://192.168.1.23/resource-file/2019-06-04/shangjiazhigong/pic1 copy 3.png", TOTAL_SPAN/2));
+        supplyTypeData.add(new BrandSupplyData("http://192.168.1.23/resource-file/2019-06-04/shangjiazhigong/pic1 copy 2.png", TOTAL_SPAN/2));
         mContentAdapter.addItems(supplyTypeData);
 
         mContentAdapter.addItem(new DividerTagData("甄选推荐", TOTAL_SPAN, 1));
 
         List<HomeBaseItemData> recommendData = new ArrayList<>(6);
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
-        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1 copy.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1 copy 2.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1 copy 3.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1 copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1 copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 2.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 3.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1 copy.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1 copy 2.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1 copy 3.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1 copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1 copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 2.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 3.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
+        recommendData.add(new RecommendData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai2 copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", TOTAL_SPAN/4));
 
         mContentAdapter.addItems(recommendData);
     }

@@ -41,7 +41,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,7 +53,6 @@
                     android:id="@+id/goods_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:textSize="25sp"
                     android:textColor="@color/sfy_black"/>
 
@@ -126,7 +126,7 @@
                     android:text="修改"
                     android:textSize="25sp"
                     android:textColor="@color/sfy_yellow"
-                    android:layout_marginLeft="30dp"/>
+                    android:layout_marginLeft="60dp"/>
             </LinearLayout>
 
 
@@ -234,20 +234,13 @@
                     android:textColor="@color/sfy_black"/>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/sfy_light_gray"
-                android:layout_marginTop="15dp" />
-
             <TextView
                 android:id="@+id/refund_tip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/sfy_gray"
                 android:textSize="15sp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginTop="15dp"/>
 
         </LinearLayout>
     </ScrollView>
@@ -256,8 +249,8 @@
         android:layout_width="match_parent"
         android:layout_height="61dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="20dp">
+        android:paddingLeft="60dp"
+        android:background="@drawable/shape_line_top_light_gray">
 
         <TextView
             android:id="@+id/bottom_price"

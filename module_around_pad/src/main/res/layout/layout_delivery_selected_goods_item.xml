@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="120dp"
     android:layout_marginTop="10dp"
-    android:layout_marginRight="60dp"
     android:orientation="horizontal"
     xmlns:tools="http://schemas.android.com/tools">
     <ImageView
@@ -31,16 +30,16 @@
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:textColor="@color/sfy_gray"
-            android:layout_below="@id/title"/>
+            android:layout_below="@id/title"
+            android:layout_marginTop="5dp"/>
 
         <TextView
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
+            android:textSize="17sp"
             android:textColor="@color/sfy_yellow"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"/>
+            android:layout_alignParentBottom="true"/>
     </RelativeLayout>
 
 

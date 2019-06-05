@@ -9,10 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="38dp"
-        android:paddingBottom="10dp">
-
+        android:layout_height="102dp">
 
         <ImageView
             android:id="@+id/back"
@@ -28,8 +25,7 @@
             android:textSize="30sp"
             android:textColor="@color/sfy_black"
             android:layout_centerInParent="true"
-            android:text="填写订单"
-            android:layout_centerVertical="true"/>
+            android:text="填写订单"/>
 
         <TextView
             android:id="@+id/add"

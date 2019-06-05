@@ -76,64 +76,72 @@
         android:paddingLeft="60dp"
         android:paddingRight="60dp"
         android:fitsSystemWindows="true"
-        android:focusableInTouchMode="true"
-        android:layout_marginBottom="10dp">
+        android:focusableInTouchMode="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:descendantFocusability="blocksDescendants">
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="40dp"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/merchant_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:textSize="25sp"
-                android:textColor="@color/sfy_black"/>
+                android:textColor="@color/sfy_black"
+                android:textSize="25sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/datas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="5dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/sfy_light_gray"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="30dp"
+                android:background="@color/sfy_light_gray" />
+
             <LinearLayout
                 android:id="@+id/delivery_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginTop="30dp"
                 android:gravity="center_vertical"
-                android:layout_marginTop="30dp">
+                android:orientation="horizontal"
+                android:paddingBottom="30dp"
+                android:background="@drawable/shape_line_bottom_light_gray">
+
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="预订到店时间"
-                    android:textSize="25sp"
-                    android:textColor="@color/sfy_black"/>
+                    android:textColor="@color/sfy_black"
+                    android:textSize="25sp" />
 
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="周五04/19   11:00"
-                    android:textSize="25sp"
-                    android:textColor="@color/sfy_black"/>
+                    android:textColor="@color/sfy_black"
+                    android:textSize="25sp" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/phone"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_centerVertical="true"
                 android:text="手机号：178345789290"
                 android:textColor="@color/sfy_black"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:layout_marginTop="30dp"/>
 
             <TextView
                 android:id="@+id/name"
@@ -141,14 +149,16 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="称呼：张先生"
-                android:textColor="@color/sfy_black"
-                android:textSize="25sp" />
+                android:textColor="#666666"
+                android:textSize="25sp"
+                android:layout_marginTop="15dp"/>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/sfy_light_gray"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"/>
+                android:layout_marginBottom="30dp"
+                android:background="@color/sfy_light_gray" />
 
 
             <TextView
@@ -159,42 +169,46 @@
                 android:text="订单信息"
                 android:textColor="@color/sfy_black"
                 android:textSize="25sp" />
+
             <TextView
                 android:id="@+id/total_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="15dp"
                 android:text="商品合计：¥37.00"
                 android:textColor="@color/sfy_black"
-                android:textSize="20sp"
-                android:layout_marginTop="30dp"/>
+                android:textSize="20sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal"
-                android:layout_marginTop="15dp">
+                android:gravity="center_vertical">
+
                 <TextView
                     android:id="@+id/order_num"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_weight="1"
                     android:text="订单编号：1686654287"
                     android:textColor="@color/sfy_black"
                     android:textSize="20sp" />
-                
+
                 <TextView
                     android:id="@+id/copy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/shape_circle_stroke_yellow"
+                    android:paddingLeft="13dp"
                     android:paddingTop="3dp"
+                    android:paddingRight="13dp"
                     android:paddingBottom="3dp"
-                    android:paddingLeft="7dp"
-                    android:paddingRight="7dp"
                     android:text="复制"
-                    android:textSize="15sp"
                     android:textColor="@color/sfy_yellow"
-                    android:background="@drawable/shape_circle_stroke_yellow"/>
+                    android:textSize="15sp" />
             </LinearLayout>
 
             <TextView
@@ -202,29 +216,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="15dp"
                 android:text="提交时间：2019-05-01  18:00"
                 android:textColor="@color/sfy_black"
-                android:textSize="20sp"
-                android:layout_marginTop="15dp" />
+                android:textSize="20sp" />
+
             <TextView
                 android:id="@+id/pay_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_marginTop="15dp"
                 android:text="支付方式：在线支付"
                 android:textColor="@color/sfy_black"
-                android:textSize="20sp"
-                android:layout_marginTop="15dp" />
+                android:textSize="20sp" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
     <LinearLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="61dp"
+        android:layout_height="75dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="60dp"
-        android:gravity="center_vertical">
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/shape_line_top_light_gray">
 
         <TextView
             android:id="@+id/count_text"

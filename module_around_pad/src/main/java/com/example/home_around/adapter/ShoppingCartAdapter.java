@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.home_around.base.BaseHolder;
@@ -73,6 +74,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<BaseHolder> {
             ((ShoppingCartDataHolder)viewHolder).bindViewHolder((ShoppingCartData.ShoppingCartItem) data);
         }else if (viewHolder instanceof ShoppingCartTagHolder) {
             ((ShoppingCartTagHolder)viewHolder).bindViewHolder((ShoppingCartDividerTagData) data);
+            ((ShoppingCartTagHolder)viewHolder).root.setBackgroundResource( i == 0 ? 0 : R.drawable.shape_line_top_light_gray);
         }
 
         if (mItemClickListener != null) {
@@ -139,9 +141,9 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<BaseHolder> {
         }
 
         if (mPriceView != null) {
-            mPriceView.setText(String.valueOf(mPrice));
+            mPriceView.setText(String.format("¥%.2f", mPrice));
         } else {
-            mPriceView.setText(0);
+            mPriceView.setText("¥0.00");
         }
     }
 
@@ -182,7 +184,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<BaseHolder> {
                 }
             });
             sizeColor.setText(data.getSize() + "/" + data.getColor());
-            price.setText("" + data.getPrice());
+            price.setText(String.format("¥%.2f", data.getPrice()));
             amountView.setGoodsStorage(data.getStorage());
             amountView.setCount(data.getCount());
             amountView.setOnAmountChangeListener(new AmountView.OnAmountChangeListener() {
@@ -201,10 +203,12 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<BaseHolder> {
 
     public class ShoppingCartTagHolder extends BaseHolder {
         private TextView tag;
+        public LinearLayout root;
 
         public ShoppingCartTagHolder(@NonNull View itemView) {
             super(itemView);
             tag = itemView.findViewById(R.id.tag);
+            root = itemView.findViewById(R.id.root);
         }
 
         public void bindViewHolder(ShoppingCartDividerTagData data) {

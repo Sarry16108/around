@@ -3,6 +3,9 @@ package com.example.home_around.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,7 +95,9 @@ public class DeliverySelectedGoodsAdapter extends RecyclerView.Adapter<DeliveryS
             GlideUtils.showImage(image, data.getImgUrl());
             title.setText(data.getTitle());
             extInfo.setText(data.getExtInfo());
-            price.setText("¥" + data.getPrice());
+            SpannableStringBuilder builder = new SpannableStringBuilder().
+                    append("¥").append(data.getPrice(), new RelativeSizeSpan(1.5f), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            price.setText(builder);
             add.setText("X" + data.getCount());
         }
     }

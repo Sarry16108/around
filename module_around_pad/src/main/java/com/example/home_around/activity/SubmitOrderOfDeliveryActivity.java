@@ -3,6 +3,9 @@ package com.example.home_around.activity;
 import android.app.Dialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -96,12 +99,14 @@ public class SubmitOrderOfDeliveryActivity extends BaseNormalActivity implements
         mPrice.setText("¥0.00");
 
         List<DeliverySelectedGoodsData> list = new ArrayList<>(3);
-        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 2));
-        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 1));
-        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15", 2));
+        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15.00", 2));
+        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15.00", 1));
+        list.add(new DeliverySelectedGoodsData("http://192.168.1.23/resource-file/2019-06-04/zhenxuantuijian/cai1.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15.00", 2));
 
         mAdapter.setItems(list);
-        mBottomPrice.setText("¥" + mAdapter.getTotalPrice());
+        SpannableStringBuilder builder = new SpannableStringBuilder().
+                append("¥").append(String.format("%.2f", mAdapter.getTotalPrice()), new RelativeSizeSpan(1.5f), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+        mBottomPrice.setText(builder);
     }
 
     @Override

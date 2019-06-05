@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,11 +42,8 @@ public class GoodsSelectFragment extends SfyBaseFragment {
     private GroupNameAdapter    mGroupNameAdapter;
     private GroupDataAdapter    mGroupDataAdapter;
 
-    //上次点击位置
     private int mOldPos = 0;
-    //是否联动
     private boolean mScrollStick = false;
-
     private LinearLayoutManager datasLayoutManager;
     private LinearLayoutManager nameLayoutManager;
 
@@ -104,7 +102,6 @@ public class GoodsSelectFragment extends SfyBaseFragment {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                LogUtils.d("newState：" + newState);
                 if (RecyclerView.SCROLL_STATE_DRAGGING == newState) {
                     mScrollStick = true;
                 }
@@ -147,30 +144,30 @@ public class GoodsSelectFragment extends SfyBaseFragment {
 
 
         List<GroupData.GroupItemData> datas = new ArrayList<>();
-        datas.add(new GroupData.GroupItemData(0, 0, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(1, 0, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(2, 0, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(3, 0, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(4, 1, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(5, 1, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(6, 1, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(7, 2, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(8, 2, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(9, 2, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(10, 2, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(11, 3, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(12, 3, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(13, 3, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(14, 4, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(15, 4, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(16, 4, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(17, 4, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(18, 4, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(19, 4, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(20, 5, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(21, 5, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(22, 5, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
-        datas.add(new GroupData.GroupItemData(23, 5, "http://192.168.1.23/resource-file/2018-12-10/2018-12-10-e7b8caf6-00cb-4581-9968-d0643480450c.jpg", "哎呀呀呀呀", "扩展信息都有啥可显示的", "15"));
+        datas.add(new GroupData.GroupItemData(0, 0, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(1, 0, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(2, 0, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 6.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(3, 0, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(4, 1, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(5, 1, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 6.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(6, 1, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(7, 2, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(8, 2, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(9, 2, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 6.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(10, 2, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(11, 3, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(12, 3, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(13, 3, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 6.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(14, 4, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(15, 4, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(16, 4, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(17, 4, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 6.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(18, 4, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 6.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(19, 4, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(20, 5, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 5.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(21, 5, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(22, 5, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
+        datas.add(new GroupData.GroupItemData(23, 5, "http://192.168.1.23/resource-file/2019-06-04/dianpuye/1/Bitmap Copy 4.png", "哎呀呀呀呀", "扩展信息都有啥可显示的", "¥15"));
         mGroupDataAdapter.setItems(datas);
 
     }
@@ -238,6 +235,7 @@ public class GoodsSelectFragment extends SfyBaseFragment {
         price.setText(pri);
 
         mDialog.show();
+        ok.setSelected(false);
     }
 
     private String selectCup = "";
@@ -319,9 +317,11 @@ public class GoodsSelectFragment extends SfyBaseFragment {
                     break;
                 case R.id.settlement:
                     mDialog.dismiss();
+                    ActManager.toSubmitOrderOfDelivery((SfyBaseActivity) getActivity());
                     return;
             }
 
+            ok.setSelected(!TextUtils.isEmpty(selectCup) || !TextUtils.isEmpty(selectTemp) || !TextUtils.isEmpty(selectAddi));
             extInfo.setText("已选：" + selectCup + "/" + selectTemp + "/" + selectAddi);
         }
     };
